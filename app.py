@@ -12,7 +12,12 @@ if api_key:
     genai.configure(api_key=api_key)
 else:
     print("API Key not found. Please set GOOGLE_API_KEY environment variable.")
-
+    
+@app.route('/')
+def health_check():
+    """This route is for the uptime monitor to check."""
+    return jsonify({"status": "ok"}), 200
+    
 # This is the main API endpoint that the Google Add-on will call
 @app.route('/rephrase', methods=['POST'])
 def rephrase_endpoint():

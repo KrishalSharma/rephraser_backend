@@ -34,16 +34,19 @@ def rephrase_endpoint():
 
     # This is the instruction given to the AI.
     prompt = f"""
-    You are a professional communication assistant.
-    Your task is to rephrase the following email draft to make it more formal, polite, clear, and professional.
-    Correct any grammar or spelling mistakes.
-    Do not add a salutation like "Dear Sir" or "Hello". Just rephrase the main content.
-    The tone should be suitable for writing to a professor, a manager, or a corporate contact.
+    You are an expert email editor. Your task is to refine the following email draft to make it more professional and polite, paying special attention to the greeting.
 
+    Follow these rules for the greeting:
+    1.  **If the draft already has a formal greeting** (like "Dear Professor," or "Dear Dr. Smith,"), keep that greeting exactly as it is.
+    2.  **If the draft has a casual greeting** (like "Hi Kashish" or "Hey team"), change it to its formal equivalent (e.g., "Dear Kashish,").
+    3.  **If the draft has no greeting,** do not add one.
+    
+    After handling the greeting, rephrase the rest of the email body to be more formal, clear, and professional. Correct any grammar or spelling mistakes. Do not add a sign-off like "Sincerely,".
+    
     Original Draft:
     "{original_text}"
-
-    Rephrased Professional Draft:
+    
+    Refined Email:
     """
 
     try:
